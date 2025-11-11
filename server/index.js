@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 app.use(
     cors({
-        origin: ["https://newragrids-complete.vercel.app"],
+        origin: ["https://www.newragrids.com", "https://newragrids-complete.vercel.app"],
         credentials: true,
     })
 );
