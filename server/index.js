@@ -14,12 +14,20 @@ app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
 
+// app.use(
+//     cors({
+//         origin: true,
+//         credentials: true,
+//     })
+// );
+
 app.use(
     cors({
-        origin: true,
+        origin: ["https://newragrids-complete.vercel.app"],
         credentials: true,
     })
 );
+
 
 const limiter = rateLimit({
     windowMs: 2 * 60 * 1000,
