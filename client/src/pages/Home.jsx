@@ -102,29 +102,7 @@ const Home = () => {
     },
   ];
 
-  const testimonials = [
-    {
-      id: 1,
-      name: "Rajesh Kumar",
-      location: "Manufacturing Unit, Mumbai",
-      text: "NewRa Grids helped us save 20% on power costs while meeting our RPO compliance effortlessly through their Open Access model.",
-      rating: 5,
-    },
-    {
-      id: 2,
-      name: "Priya Sharma",
-      location: "Commercial Complex, Pune",
-      text: "Excellent service! Our facility now runs on clean energy and our operational costs have dropped significantly with zero infrastructure investment.",
-      rating: 5,
-    },
-    {
-      id: 3,
-      name: "Amit Patel",
-      location: "Industrial Plant, Nagpur",
-      text: "The AI-powered dashboard and automated billing make energy management seamless. Proud to be contributing to Maharashtra's green future.",
-      rating: 5,
-    },
-  ];
+
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
@@ -454,113 +432,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="py-20 px-4 bg-[#FFF8F5] dark:bg-gray-900 w-full">
-          <div className="container mx-auto max-w-7xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#2D50A1] to-[#28B8B4] bg-clip-text text-transparent">
-                What Our Clients Say
-              </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Join industries across Maharashtra who have transformed their energy consumption with NewRa Grids.
-              </p>
-            </motion.div>
 
-            {/* Slider Container */}
-            <div className="relative">
-              {/* Navigation Arrows */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20 bg-white dark:bg-gray-800 shadow-2xl border border-gray-200 dark:border-gray-700 rounded-r-full rounded-l-none p-4 hover:scale-110 transition-all duration-300 hidden md:block"
-              >
-                <ChevronLeft className="h-7 w-7 text-gray-700 dark:text-gray-300" />
-              </button>
-
-              <button
-                onClick={nextSlide}
-                className="absolute right-0 top-1/2 transform -translate-y-1/2 z-20 bg-white dark:bg-gray-800 shadow-2xl border border-gray-200 dark:border-gray-700 rounded-l-full rounded-r-none p-4 hover:scale-110 transition-all duration-300 hidden md:block"
-              >
-                <ChevronRight className="h-7 w-7 text-gray-700 dark:text-gray-300" />
-              </button>
-
-              {/* Play/Pause Button */}
-              <div className="flex justify-center mb-8">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setIsPlaying(!isPlaying)}
-                  className="rounded-full border-[#2D50A1] text-[#2D50A1] hover:bg-[#2D50A1] hover:text-white"
-                >
-                  {isPlaying ? <Pause className="h-4 w-4 mr-2" /> : <Play className="h-4 w-4 mr-2" />}
-                  {isPlaying ? 'Pause' : 'Play'} Auto-slide
-                </Button>
-              </div>
-
-              {/* Testimonial Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                <AnimatePresence mode="wait">
-                  {visibleTestimonials.map((testimonial, index) => (
-                    <motion.div
-                      key={testimonial.id}
-                      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className={`transform transition-all duration-500 ${index === 1 ? 'scale-105 z-10' : 'scale-95 opacity-80'
-                        }`}
-                    >
-                      <Card className="h-full bg-white dark:bg-gray-800 border border-[#28B8B4]/20 shadow-xl hover:shadow-2xl transition-all duration-300">
-                        <CardContent className="p-6 md:p-8">
-                          {/* Rating Stars */}
-                          <div className="flex mb-4 justify-center">
-                            {[...Array(testimonial.rating)].map((_, i) => (
-                              <Star key={i} className="h-5 w-5 fill-[#F79050] text-[#F79050]" />
-                            ))}
-                          </div>
-
-                          {/* Testimonial Text */}
-                          <p className="text-gray-600 dark:text-gray-300 mb-6 text-center leading-relaxed italic">
-                            "{testimonial.text}"
-                          </p>
-
-                          {/* Client Info */}
-                          <div className="flex items-center justify-center">
-                            <div className="w-12 h-12 bg-gradient-to-r from-[#2D50A1] to-[#28B8B4] rounded-full flex items-center justify-center mr-4">
-                              <Users className="h-6 w-6 text-white" />
-                            </div>
-                            <div className="text-left">
-                              <p className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</p>
-                              <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.location}</p>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
-              </div>
-
-              {/* Slide Indicators */}
-              <div className="flex justify-center mt-8 space-x-3">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide % testimonials.length
-                        ? 'bg-[#28B8B4] scale-125'
-                        : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400'
-                      }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
 
       </div>
 
