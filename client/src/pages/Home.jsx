@@ -3,23 +3,23 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatePresence, motion } from "framer-motion";
-import { 
-  Leaf, 
-  DollarSign, 
-  Shield, 
-  TrendingUp, 
-  Star, 
-  Users, 
-  ChevronLeft, 
-  ChevronRight, 
-  ArrowRight, 
+import {
+  Leaf,
+  DollarSign,
+  Shield,
+  TrendingUp,
+  Star,
+  Users,
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
   Play,
   Pause,
-  Zap, 
-  Calculator, 
-  PlayCircle, 
-  Sparkles, 
-  CheckCircle 
+  Zap,
+  Calculator,
+  PlayCircle,
+  Sparkles,
+  CheckCircle
 } from "lucide-react";
 import About from "./About";
 import KnowYour from "../components/knowyour";
@@ -179,9 +179,8 @@ const Home = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide ? 'bg-[#28B8B4] scale-125' : 'bg-white/50'
-                }`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-[#28B8B4] scale-125' : 'bg-white/50'
+                  }`}
               />
             ))}
           </div>
@@ -212,7 +211,7 @@ const Home = () => {
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-center">
                   {slides[currentSlide].title}
                 </h1>
-                
+
                 {/* Description - Centered */}
                 <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-10 leading-relaxed text-center mx-auto max-w-3xl">
                   {slides[currentSlide].description}
@@ -230,7 +229,7 @@ const Home = () => {
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
-                  
+
                   <Button
                     asChild
                     variant="outline"
@@ -287,12 +286,12 @@ const Home = () => {
                 <div key={index} className="relative group">
                   {/* Circular Card */}
                   <div className="relative bg-white dark:bg-gray-800 rounded-full w-64 h-64 mx-auto p-8 shadow-xl border border-[#28B8B4]/20 hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                    
+
                     {/* Icon Circle */}
                     <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-[#2D50A1] to-[#28B8B4] rounded-full flex items-center justify-center shadow-lg">
                       <benefit.icon className="h-8 w-8 text-white" />
                     </div>
-                    
+
                     {/* Content */}
                     <div className="h-full flex flex-col items-center justify-center text-center pt-6">
                       <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-3 leading-tight">
@@ -302,11 +301,11 @@ const Home = () => {
                         {benefit.description}
                       </p>
                     </div>
-                    
+
                     {/* Outer Glow Effect */}
                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#28B8B4]/10 to-[#2D50A1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                  
+
                   {/* Connecting Lines for Desktop */}
                   {index < benefits.length - 1 && (
                     <>
@@ -347,8 +346,8 @@ const Home = () => {
                 <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
                   NewRa Grids is a new-age climate-tech company transforming how industries and businesses consume energy through Open Access and GEOA models.
                 </p>
-                <Button 
-                  asChild 
+                <Button
+                  asChild
                   variant="outline"
                   className="bg-white text-[#2D50A1] hover:bg-blue-50 border-white px-8 py-6 text-lg font-semibold"
                 >
@@ -382,7 +381,7 @@ const Home = () => {
                 <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
                   Automated Energy Solutions for <span className="text-[#2D50A1] dark:text-[#28B8B4]">Modern Industries</span>
                 </h1>
-                
+
                 <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                   We aggregate industrial and commercial consumers with renewable energy partners through a fully digital, subscription-based ecosystem.
                 </p>
@@ -413,7 +412,7 @@ const Home = () => {
                       Get Free Quote
                     </Link>
                   </Button>
-                  
+
                   <Button
                     asChild
                     variant="outline"
@@ -435,14 +434,14 @@ const Home = () => {
                 className="relative"
               >
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img 
+                  <img
                     src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.1.0&auto=format&fit=crop&q=80"
                     alt="Solar Panels"
                     className="w-full h-[500px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#09193C]/20 to-transparent"></div>
                 </div>
-                
+
                 {/* Floating Stats Card */}
                 <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl border border-[#28B8B4]/20">
                   <div className="text-center">
@@ -512,9 +511,8 @@ const Home = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -20, scale: 0.95 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className={`transform transition-all duration-500 ${
-                        index === 1 ? 'scale-105 z-10' : 'scale-95 opacity-80'
-                      }`}
+                      className={`transform transition-all duration-500 ${index === 1 ? 'scale-105 z-10' : 'scale-95 opacity-80'
+                        }`}
                     >
                       <Card className="h-full bg-white dark:bg-gray-800 border border-[#28B8B4]/20 shadow-xl hover:shadow-2xl transition-all duration-300">
                         <CardContent className="p-6 md:p-8">
@@ -524,12 +522,12 @@ const Home = () => {
                               <Star key={i} className="h-5 w-5 fill-[#F79050] text-[#F79050]" />
                             ))}
                           </div>
-                          
+
                           {/* Testimonial Text */}
                           <p className="text-gray-600 dark:text-gray-300 mb-6 text-center leading-relaxed italic">
                             "{testimonial.text}"
                           </p>
-                          
+
                           {/* Client Info */}
                           <div className="flex items-center justify-center">
                             <div className="w-12 h-12 bg-gradient-to-r from-[#2D50A1] to-[#28B8B4] rounded-full flex items-center justify-center mr-4">
@@ -553,11 +551,10 @@ const Home = () => {
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentSlide % testimonials.length
-                        ? 'bg-[#28B8B4] scale-125' 
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide % testimonials.length
+                        ? 'bg-[#28B8B4] scale-125'
                         : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400'
-                    }`}
+                      }`}
                   />
                 ))}
               </div>

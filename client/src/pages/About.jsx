@@ -15,29 +15,29 @@ export default function About() {
   const values = [
     {
       icon: Heart,
-      title: "Reliability",
-      description: "We deliver consistent, dependable energy solutions you can trust",
+      title: "Sustainability",
+      description: "Every project contributes to cleaner air and a healthier planet.",
       color: "text-[#F79050]",
       bgColor: "bg-[#F79050]/10"
     },
     {
       icon: Target,
-      title: "Affordability",
-      description: "Making renewable energy accessible to all with competitive pricing",
+      title: "Transparency ",
+      description: "Automated processes ensure clarity in every unit of energy aggregated and exchanged.",
       color: "text-[#28B8B4]",
       bgColor: "bg-[#28B8B4]/10"
     },
     {
       icon: Lightbulb,
-      title: "Sustainability",
-      description: "Committed to reducing carbon footprint and protecting our planet",
+      title: "Collaboration ",
+      description: " We grow together with our Energy Partners and Energy Subscribers.",
       color: "text-[#2D50A1]",
       bgColor: "bg-[#2D50A1]/10"
     },
     {
       icon: Award,
-      title: "Innovation",
-      description: "Leading with cutting-edge technology and modern solutions",
+      title: "Integrity ",
+      description: " Compliance, fairness, and ethics guide every decision we make.",
       color: "text-[#09193C]",
       bgColor: "bg-[#09193C]/10"
     },
@@ -227,9 +227,7 @@ export default function About() {
                   </div>
                   <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Our Mission</h2>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                    To empower every Indian household and business with clean, affordable,
-                    and reliable renewable energy. We believe in creating a sustainable
-                    future where energy independence is accessible to all.
+                    To democratize access to clean energy by delivering automated, affordable, and sustainable power solutions and enabling every enterprise to reduce costs, meet RPO norms, and accelerate India’s transition to a carbon-neutral future.
                   </p>
                 </CardContent>
               </Card>
@@ -248,9 +246,8 @@ export default function About() {
                   </div>
                   <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Our Vision</h2>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                    To be India's most trusted renewable energy partner, driving the nation
-                    towards a carbon-neutral future. We envision a country where clean energy
-                    is the norm, not the exception.
+                    To become India’s most trusted digital renewable-energy platform, empowering industries and communities to experience energy not as a
+                    commodity, but as a shared and automated service that powers growth responsibly.
                   </p>
                 </CardContent>
               </Card>
@@ -285,8 +282,8 @@ export default function About() {
               className="w-full lg:w-1/2"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src={solarFarmImage} 
+                <img
+                  src={solarFarmImage}
                   alt="Our Impact Visualization"
                   className="w-full h-96 object-cover"
                 />
@@ -365,7 +362,7 @@ export default function About() {
               >
                 <Card className="h-full border border-[#28B8B4]/20 shadow-md rounded-xl hover:shadow-lg transition-all duration-300 bg-white dark:bg-gray-800">
                   <CardContent className="p-8 text-center">
-                    
+
                     {/* Circular Outline Icon */}
                     <motion.div
                       whileHover={{ scale: 1.1 }}
@@ -379,7 +376,7 @@ export default function About() {
                     <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
                       {value.title}
                     </h3>
-                    
+
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                       {value.description}
                     </p>
@@ -414,27 +411,27 @@ export default function About() {
 
             {[
               {
-                year: "2020",
+                year: "2023",
                 title: "Foundation",
-                description: "NewRa Grids was founded with a vision to make renewable energy accessible across India.",
+                description: "Conceptualized NewRa Grids with a vision to simplify renewable-energy access.",
                 icon: Target
               },
               {
-                year: "2021",
-                title: "First 1000 Installations",
-                description: "Reached our first milestone of 1000 solar installations across 5 states.",
+                year: "2024",
+                title: "Key Partnerships",
+                description: "Formed key partnerships with solar and wind farms; launched pilot aggregator model.",
                 icon: TrendingUp
               },
               {
-                year: "2023",
-                title: "National Expansion",
-                description: "Expanded operations to 20+ cities, serving both residential and commercial clients.",
+                year: "2025",
+                title: "Smart Energy Platform",
+                description: "Developed the NewRa Smart Energy Platform, integrating AI-powered dashboards, automated billing, and carbon-impact analytics.",
                 icon: MapPin
               },
               {
-                year: "2025",
-                title: "Innovation Leader",
-                description: "Leading India's renewable revolution with 5000+ installations and advanced energy solutions.",
+                year: "2026",
+                title: "Expansion & ESG Integration",
+                description: "Expanding to multi-state operations, hybrid solar-wind-storage projects, and ESG reporting integration for all clients.",
                 icon: Award
               },
             ].map((milestone, index) => (

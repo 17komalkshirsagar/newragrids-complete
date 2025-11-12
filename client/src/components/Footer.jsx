@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, Globe } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,35 +8,63 @@ export function Footer() {
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
             © 2025 NewRa Grids. All rights reserved.
           </p>
+
           <div className="flex space-x-4">
+            {/* Facebook */}
             <a
-              href="#"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              href="https://www.facebook.com/profile.php?id=61581721202186"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-transform transform hover:scale-110"
               aria-label="Facebook"
             >
               <Facebook className="h-5 w-5" />
             </a>
+
+            {/* Twitter / X */}
             <a
-              href="#"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Twitter"
+              href="https://x.com/NewRaGrids"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-transform transform hover:scale-110"
+              aria-label="Twitter/X"
             >
               <Twitter className="h-5 w-5" />
             </a>
+
+            {/* LinkedIn */}
             <a
-              href="#"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              href="https://www.linkedin.com/in/newra-grids-2b98ab388/?trk=opento_sprofile_topcard"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-transform transform hover:scale-110"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
             </a>
+
+            {/* Instagram */}
             <a
-              href="#"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              href="https://www.instagram.com/newra.grids/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-transform transform hover:scale-110"
               aria-label="Instagram"
             >
               <Instagram className="h-5 w-5" />
             </a>
+
+            {/* Reddit */}
+            <a
+              href="https://www.reddit.com/user/NewRaGrids/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-transform transform hover:scale-110"
+              aria-label="Reddit"
+            >
+              <Globe className="h-5 w-5" />
+            </a>
+
           </div>
         </div>
       </div>
