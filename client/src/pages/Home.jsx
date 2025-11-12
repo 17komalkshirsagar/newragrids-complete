@@ -108,11 +108,7 @@ const Home = () => {
     setCurrentSlide(index);
   };
 
-  const visibleTestimonials = [
-    testimonials[currentSlide % testimonials.length],
-    testimonials[(currentSlide + 1) % testimonials.length],
-    testimonials[(currentSlide + 2) % testimonials.length]
-  ];
+
 
   return (
     <>
