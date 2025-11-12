@@ -497,27 +497,27 @@ export default function About() {
 
             {[
               {
-                year: "2020",
+                year: "2023",
                 title: "Foundation",
-                description: "NewRa Grids was founded with a vision to make renewable energy accessible across India.",
+                description: "Conceptualized NewRa Grids with a vision to simplify renewable-energy access.",
                 icon: Target
               },
               {
-                year: "2021",
+                year: "2024",
                 title: "First 1000 Installations",
-                description: "Reached our first milestone of 1000 solar installations across 5 states.",
+                description: " Formed key partnerships with solar and wind farms; launched pilot aggregator model.",
                 icon: TrendingUp
               },
               {
-                year: "2023",
+                year: "2025",
                 title: "National Expansion",
-                description: "Expanded operations to 20+ cities, serving both residential and commercial clients.",
+                description: "Developed the NewRa Smart Energy Platform, integrating AI-powered dashboards, automated billing, and carbon-impact analytics.",
                 icon: MapPin
               },
               {
                 year: "2025",
                 title: "Innovation Leader",
-                description: "Leading India's renewable revolution with 5000+ installations and advanced energy solutions.",
+                description: "Expanding to multi-state operations, hybrid solar-wind-storage projects, and ESG reporting integration for all clients.",
                 icon: Award
               },
             ].map((milestone, index) => (
