@@ -30,8 +30,8 @@ import { toast } from "sonner";
 
 // 📄 File Upload Section
 const PDFUploadSection = ({ isEditing, uploadedFiles, onFilesUpdate }) => {
-const userState = useSelector((state) => state.user.user);
-const user = userState?.data ? userState.data : userState;
+  const userState = useSelector((state) => state.user.user);
+  const user = userState?.data ? userState.data : userState;
   const [uploadFile] = useUploadFileMutation();
   const [isUploading, setIsUploading] = useState(false);
   const [isSelecting, setIsSelecting] = useState(false);
@@ -143,22 +143,25 @@ const user = userState?.data ? userState.data : userState;
       <Card className="shadow-2xl border-0 bg-gradient-to-br from-[#FFF8F5] to-[#28B8B4]/10 dark:from-gray-800 dark:to-[#28B8B4]/5 rounded-2xl">
         {/* Gradient Top Border */}
         <div className="h-1 bg-gradient-to-r from-[#2D50A1] to-[#28B8B4] rounded-t-2xl"></div>
-        
+
         <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-[#28B8B4]/20">
           <CardTitle className="text-2xl font-bold bg-gradient-to-r from-[#2D50A1] to-[#28B8B4] bg-clip-text text-transparent flex items-center gap-2">
             <FileText className="w-7 h-7 text-[#28B8B4]" />
-            Bill Documents
+            Upload Your 12 Month of Bill
+            <p className="text-[#2D50A1] dark:text-[#28B8B4] text-lg font-medium">
+              to Known your Saving
+            </p>
+
           </CardTitle>
         </CardHeader>
 
         <CardContent className="pt-6 space-y-6">
           <label
             htmlFor="pdf-upload"
-            className={`block cursor-pointer text-center p-6 rounded-xl border-2 border-dashed transition-all duration-300 ${
-              isUploading || isSelecting
-                ? "bg-[#28B8B4]/20 border-[#28B8B4]/40 cursor-not-allowed"
-                : "bg-[#28B8B4]/10 border-[#28B8B4]/30 hover:bg-[#28B8B4]/20 hover:border-[#28B8B4]/50"
-            }`}
+            className={`block cursor-pointer text-center p-6 rounded-xl border-2 border-dashed transition-all duration-300 ${isUploading || isSelecting
+              ? "bg-[#28B8B4]/20 border-[#28B8B4]/40 cursor-not-allowed"
+              : "bg-[#28B8B4]/10 border-[#28B8B4]/30 hover:bg-[#28B8B4]/20 hover:border-[#28B8B4]/50"
+              }`}
           >
             {isSelecting ? (
               <>
@@ -296,8 +299,8 @@ const user = userState?.data ? userState.data : userState;
 // 🧍‍♂ Main Profile Component
 const UserProfile = () => {
   const { user: authUser } = useAuth();
-const userState = useSelector((state) => state.user.user);
-const user = userState?.data ? userState.data : userState;
+  const userState = useSelector((state) => state.user.user);
+  const user = userState?.data ? userState.data : userState;
   const [isEditing, setIsEditing] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [updateUserProfile, { isLoading }] = useUpdateUserProfileMutation();
@@ -335,7 +338,7 @@ const user = userState?.data ? userState.data : userState;
     <div className="min-h-screen bg-gradient-to-br from-[#FFF8F5] via-white to-[#28B8B4]/10 dark:from-gray-900 dark:via-gray-800 dark:to-[#28B8B4]/5 py-8 px-4">
       <div className="max-w-6xl mx-auto mb-8 text-center">
         <div className="flex items-center justify-center gap-3 mb-4">
-         
+
           <h1 className="text-4xl font-bold bg-gradient-to-r from-[#2D50A1] to-[#28B8B4] bg-clip-text text-transparent">
             Energy Profile
           </h1>
@@ -349,7 +352,7 @@ const user = userState?.data ? userState.data : userState;
         <Card className="shadow-2xl border-0 bg-gradient-to-br from-white to-[#FFF8F5] dark:from-gray-800 dark:to-gray-700 rounded-2xl">
           {/* Gradient Top Border */}
           <div className="h-1 bg-gradient-to-r from-[#2D50A1] to-[#28B8B4] rounded-t-2xl"></div>
-          
+
           <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-[#28B8B4]/20">
             <CardTitle className="text-2xl font-bold bg-gradient-to-r from-[#2D50A1] to-[#28B8B4] bg-clip-text text-transparent flex items-center gap-2">
               <User className="w-7 h-7 text-[#28B8B4]" />
