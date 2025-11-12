@@ -454,7 +454,7 @@ export default function About() {
                       </motion.div>
                       <div className="flex-1">
                         <div className="flex items-center mb-3">
-                          <milestone.icon className="w-6 h-6 text-[#28B8B4] mr-3" />
+                          <milestone.icon className="w-6 h-6 text-[#28B8B4] mr-4" />
                           <h3 className="text-xl font-bold text-gray-800 dark:text-white">{milestone.title}</h3>
                         </div>
                         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{milestone.description}</p>
