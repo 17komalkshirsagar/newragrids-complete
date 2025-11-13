@@ -135,12 +135,17 @@ export function Navbar() {
                                             <DropdownMenuSeparator />
                                             <DropdownMenuItem
                                                 onClick={handleLogout}
-                                                className="cursor-pointer text-red-600 dark:text-red-400 focus:text-red-600 dark:focus:text-red-400 w-full"
+                                                className="  w-full"
                                             >
                                                 <LogOut className="mr-2 h-4 w-4" />
                                                 <span>Log out</span>
                                             </DropdownMenuItem>
+
+
                                         </DropdownMenuContent>
+
+
+
                                     </DropdownMenu>
                                 ) : (
                                     // User is not logged in - Show ONLY Login Button (NO profile icon)
@@ -241,8 +246,8 @@ export function Navbar() {
                                             to={link.to}
                                             onClick={() => setIsOpen(false)}
                                             className={`flex items-center py-3 px-4 rounded-2xl text-base font-semibold transition-all duration-300 ${currentPath === link.to
-                                                    ? 'bg-gradient-to-r from-[#28B8B4] to-[#2D50A1] text-white shadow-lg'
-                                                    : 'text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-[#28B8B4]/10 hover:to-[#2D50A1]/10 hover:text-[#28B8B4] dark:hover:text-[#28B8B4]'
+                                                ? 'bg-gradient-to-r from-[#28B8B4] to-[#2D50A1] text-white shadow-lg'
+                                                : 'text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-[#28B8B4]/10 hover:to-[#2D50A1]/10 hover:text-[#28B8B4] dark:hover:text-[#28B8B4]'
                                                 }`}
                                         >
                                             {link.label}
@@ -308,7 +313,7 @@ export function Navbar() {
                                                 setIsOpen(false);
                                             }}
                                             variant="outline"
-                                            className="w-full border-white/20 text-white hover:bg-white/10 mt-2 text-sm py-2"
+                                            className="w-full border-white/20 text-red-500 hover:bg-white/10 mt-2 text-sm py-2"
                                         >
                                             <LogOut className="w-4 h-4 mr-2" />
                                             Logout
@@ -334,7 +339,7 @@ export function Navbar() {
                             {/* Contact Info */}
                             <div className="mt-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl text-center">
                                 <p className="text-xs text-gray-600 dark:text-gray-400">
-                                    Need help? <span className="text-[#28B8B4] font-medium">contact@newragrids.com</span>
+                                    For Support  <span className="text-[#28B8B4] font-medium">support@newragrids.com</span>
                                 </p>
                             </div>
                         </motion.div>
