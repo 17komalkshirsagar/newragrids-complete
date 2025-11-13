@@ -68,11 +68,18 @@ const KnowYour = () => {
         }
 
         // Specific error messages from backend
+        // if (error?.data?.message) {
+        //   toast.error(`❌ ${error.data.message}`);
+        //   return;
+        // }
         if (error?.data?.message) {
-          toast.error(`❌ ${error.data.message}`);
+          if (error.data.message === "Provide a Strong Password") {
+            toast.error("❌ Please use a strong password that includes uppercase, lowercase, number, and special character.");
+          } else {
+            toast.error(`❌ ${error.data.message}`);
+          }
           return;
         }
-
         // Generic error messages
         if (error?.error) {
           toast.error(`❌ ${error.error}`);
