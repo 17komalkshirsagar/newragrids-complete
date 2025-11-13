@@ -144,16 +144,19 @@ const PDFUploadSection = ({ isEditing, uploadedFiles, onFilesUpdate }) => {
         {/* Gradient Top Border */}
         <div className="h-1 bg-gradient-to-r from-[#2D50A1] to-[#28B8B4] rounded-t-2xl"></div>
 
-        <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-[#28B8B4]/20">
-          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-[#2D50A1] to-[#28B8B4] bg-clip-text text-transparent flex items-center gap-2">
-            <FileText className="w-7 h-7 text-[#28B8B4]" />
-            Upload Your 12 Month of Bill
-            <p className="text-[#2D50A1] dark:text-[#28B8B4] text-lg font-medium">
-              to Known your Saving
+        <CardHeader className="flex flex-col items-center justify-center pb-6 border-b border-[#28B8B4]/30">
+          <CardTitle className="text-3xl font-extrabold bg-gradient-to-r from-[#2D50A1] to-[#28B8B4] bg-clip-text text-transparent flex flex-col items-center gap-2 text-center tracking-tight">
+            <div className="flex items-center justify-center gap-3">
+              <FileText className="w-8 h-8 text-[#28B8B4]" />
+              <span>Upload Your 12 Months of Bill</span>
+            </div>
+            <p className="text-[#2D50A1]/80 dark:text-[#28B8B4]/80 text-lg font-medium">
+              Know your monthly savings instantly
             </p>
-
           </CardTitle>
         </CardHeader>
+
+
 
         <CardContent className="pt-6 space-y-6">
           <label
