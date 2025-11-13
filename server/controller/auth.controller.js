@@ -188,7 +188,7 @@ exports.userregister = asyncHandler(async (req, res) => {
         console.error("Failed to send registration email ❌", err);
     }
 
-    res.status(201).json({
+    res.status(200).json({
         message: "User registered successfully",
         userId: newUser._id,
     });
