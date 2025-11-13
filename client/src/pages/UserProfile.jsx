@@ -282,7 +282,7 @@ const PDFUploadSection = ({ isEditing, uploadedFiles, onFilesUpdate }) => {
                 Thank You, {user?.Name || "User"}!
               </h2>
               <p className="text-[#2D50A1] dark:text-[#28B8B4] mb-4">
-                Your bill has been uploaded successfully. 🌱
+                We’ve saved your bill successfully. Our team will review it and get back to you soon. 🌱
               </p>
               <motion.button
                 whileTap={{ scale: 0.95 }}
