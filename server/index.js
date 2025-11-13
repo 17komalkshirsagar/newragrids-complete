@@ -8,7 +8,7 @@ require("dotenv").config({ path: "./.env" });
 
 const app = express();
 
-
+app.set("trust proxy", 1);
 app.use(helmet());
 
 app.use(express.json());
@@ -29,9 +29,16 @@ app.use(
 );
 
 
+// const limiter = rateLimit({
+//     windowMs: 2 * 60 * 1000,
+//     max: 50,
+//     message: { message: "Too many requests, please try again later." },
+// });
+// app.use(limiter);
+
 const limiter = rateLimit({
-    windowMs: 2 * 60 * 1000,
-    max: 50,
+    windowMs: 2 * 60 * 1000, // 2 minutes
+    max: 50, // limit each IP
     message: { message: "Too many requests, please try again later." },
 });
 app.use(limiter);
