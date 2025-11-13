@@ -89,146 +89,40 @@ exports.logout = asyncHandler(async (req, res) => {
 
 
 //register user
-// exports.userregister = asyncHandler(async (req, res) => {
-//     const { name, email, mobile, password, companyName, district } = req.body;
-
-//     // Basic empty check
-//     const { isError, error } = checkEmpty({ name, email, mobile, password, companyName, district });
-//     if (isError) {
-//         return res.status(400).json({ message: "All required fields must be filled", error });
-//     }
-
-//     // Email validation
-//     if (!validator.isEmail(email)) {
-//         return res.status(400).json({ message: "Invalid Email" });
-//     }
-
-//     // Mobile validation
-//     if (!validator.isMobilePhone(mobile.toString(), "en-IN")) {
-//         return res.status(400).json({ message: "Invalid Mobile Number" });
-//     }
-
-//     // Strong password validation
-//     if (!validator.isStrongPassword(password)) {
-//         return res.status(400).json({ message: "Provide a Strong Password" });
-//     }
-
-//     // Check if already registered
-//     const userExists = await User.findOne({ email });
-//     if (userExists) {
-//         return res.status(400).json({ message: "Email Already Registered" });
-//     }
-
-//     // Hash password
-//     const hashedPassword = await bcrypt.hash(password, 10);
-
-//     // Create user
-//     const newUser = await User.create({
-//         Name: name,
-//         email,
-//         mobile,
-//         password: hashedPassword,
-//         companyName: companyName || "",
-//         district: district || "",
-//     });
-
-//     // ✅ Send registration email
-//     try {
-//         const subject = "Welcome to Our Platform 🎉";
-//         const message = `
-//   <div style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #f5f7fa; padding: 30px;">
-//     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
-
-//       <!-- Header -->
-//       <div style="background: linear-gradient(135deg, #16a34a, #22c55e); color: #fff; text-align: center; padding: 25px 10px;">
-//         <h1 style="margin: 0; font-size: 24px;">Welcome to NewRa Grids Pvt. Ltd.</h1>
-//         <p style="margin: 5px 0 0; font-size: 15px;">Empowering India With Sustainable Energy</p>
-//       </div>
-
-//       <!-- Body -->
-//       <div style="padding: 25px; color: #333;">
-//         <h2 style="color: #16a34a; margin-bottom: 10px;">Hello, ${name} 👋</h2>
-//         <p style="margin: 0 0 15px;">Thank you for registering with <b>NewRa Grids Pvt. Ltd.</b> We’re excited to have you onboard!</p>
-//         <p style="margin: 0 0 15px;">Here are your registration details:</p>
-
-//         <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-//           <tr><td style="padding: 8px 0;"><b>Email:</b></td><td>${email}</td></tr>
-//           <tr><td style="padding: 8px 0;"><b>Mobile:</b></td><td>${mobile}</td></tr>
-//           <tr><td style="padding: 8px 0;"><b>Company:</b></td><td>${companyName || "N/A"}</td></tr>
-//           <tr><td style="padding: 8px 0;"><b>District:</b></td><td>${district || "N/A"}</td></tr>
-//           <tr><td style="padding: 8px 0;"><b>Password:</b></td><td>${password}</td></tr>
-//         </table>
-
-//         <p style="margin: 15px 0;">You can now log in and explore your dashboard. If you didn’t register for this account, please contact our support team immediately.</p>
-
-//         <div style="text-align: center; margin-top: 30px;">
-//           <a href="https://newragrids.com/UserLogin" style="background-color: #16a34a; color: #fff; padding: 10px 25px; text-decoration: none; border-radius: 6px; font-weight: bold;">
-//             Go to Dashboard
-//           </a>
-//         </div>
-//       </div>
-
-//       <!-- Footer -->
-//       <div style="background-color: #f0fdf4; text-align: center; padding: 15px; font-size: 13px; color: #555;">
-//         <p style="margin: 0;">© ${new Date().getFullYear()} Newra Grids Pvt. Ltd. All rights reserved.</p>
-//         <p style="margin: 5px 0 0;">📍 Chhatrapati SambhajNagar, Maharashtra | 🌐 <a href="https://newragrids.com" style="color: #16a34a; text-decoration: none;">www.newragrids.com</a></p>
-//       </div>
-
-//     </div>
-//   </div>
-// `;
-
-//         await sendEmail({
-//             subject,
-//             to: email,
-//             message,
-//         });
-//         console.log("Registration email sent successfully ✅");
-//     } catch (err) {
-//         console.error("Failed to send registration email ❌", err);
-//     }
-
-//     res.status(200).json({
-//         message: "User registered successfully",
-//         userId: newUser._id,
-//     });
-// });
-
-
-
-
 exports.userregister = asyncHandler(async (req, res) => {
     const { name, email, mobile, password, companyName, district } = req.body;
 
-    // ✅ 1. Check required fields
+    // Basic empty check
     const { isError, error } = checkEmpty({ name, email, mobile, password, companyName, district });
     if (isError) {
         return res.status(400).json({ message: "All required fields must be filled", error });
     }
 
-    // ✅ 2. Email & Mobile Validation
+    // Email validation
     if (!validator.isEmail(email)) {
         return res.status(400).json({ message: "Invalid Email" });
     }
 
+    // Mobile validation
     if (!validator.isMobilePhone(mobile.toString(), "en-IN")) {
         return res.status(400).json({ message: "Invalid Mobile Number" });
     }
 
+    // Strong password validation
     if (!validator.isStrongPassword(password)) {
         return res.status(400).json({ message: "Provide a Strong Password" });
     }
 
-    // ✅ 3. Check duplicate
+    // Check if already registered
     const userExists = await User.findOne({ email });
     if (userExists) {
         return res.status(400).json({ message: "Email Already Registered" });
     }
 
-    // ✅ 4. Hash password
+    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // ✅ 5. Create new user
+    // Create user
     const newUser = await User.create({
         Name: name,
         email,
@@ -238,55 +132,72 @@ exports.userregister = asyncHandler(async (req, res) => {
         district: district || "",
     });
 
-    // ✅ 6. Prepare Email Content
-    const subject = "Welcome to NewRa Grids Pvt. Ltd 🎉";
-    const message = `
+    // ✅ Send registration email
+    try {
+        const subject = "Welcome to Our Platform 🎉";
+        const message = `
   <div style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #f5f7fa; padding: 30px;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
+
+      <!-- Header -->
       <div style="background: linear-gradient(135deg, #16a34a, #22c55e); color: #fff; text-align: center; padding: 25px 10px;">
-        <h1>Welcome to NewRa Grids Pvt. Ltd.</h1>
-        <p>Empowering India With Sustainable Energy</p>
+        <h1 style="margin: 0; font-size: 24px;">Welcome to NewRa Grids Pvt. Ltd.</h1>
+        <p style="margin: 5px 0 0; font-size: 15px;">Empowering India With Sustainable Energy</p>
       </div>
+
+      <!-- Body -->
       <div style="padding: 25px; color: #333;">
-        <h2 style="color: #16a34a;">Hello, ${name} 👋</h2>
-        <p>Thank you for registering with <b>NewRa Grids Pvt. Ltd.</b> We’re excited to have you onboard!</p>
-        <table style="width: 100%; margin: 15px 0;">
-          <tr><td><b>Email:</b></td><td>${email}</td></tr>
-          <tr><td><b>Mobile:</b></td><td>${mobile}</td></tr>
-          <tr><td><b>Company:</b></td><td>${companyName || "N/A"}</td></tr>
-          <tr><td><b>District:</b></td><td>${district || "N/A"}</td></tr>
+        <h2 style="color: #16a34a; margin-bottom: 10px;">Hello, ${name} 👋</h2>
+        <p style="margin: 0 0 15px;">Thank you for registering with <b>NewRa Grids Pvt. Ltd.</b> We’re excited to have you onboard!</p>
+        <p style="margin: 0 0 15px;">Here are your registration details:</p>
+
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+          <tr><td style="padding: 8px 0;"><b>Email:</b></td><td>${email}</td></tr>
+          <tr><td style="padding: 8px 0;"><b>Mobile:</b></td><td>${mobile}</td></tr>
+          <tr><td style="padding: 8px 0;"><b>Company:</b></td><td>${companyName || "N/A"}</td></tr>
+          <tr><td style="padding: 8px 0;"><b>District:</b></td><td>${district || "N/A"}</td></tr>
+          <tr><td style="padding: 8px 0;"><b>Password:</b></td><td>${password}</td></tr>
         </table>
+
+        <p style="margin: 15px 0;">You can now log in and explore your dashboard. If you didn’t register for this account, please contact our support team immediately.</p>
+
         <div style="text-align: center; margin-top: 30px;">
           <a href="https://newragrids.com/UserLogin" style="background-color: #16a34a; color: #fff; padding: 10px 25px; text-decoration: none; border-radius: 6px; font-weight: bold;">
             Go to Dashboard
           </a>
         </div>
       </div>
-      <div style="background-color: #f0fdf4; text-align: center; padding: 15px; font-size: 13px; color: #555;">
-        <p>© ${new Date().getFullYear()} NewRa Grids Pvt. Ltd. All rights reserved.</p>
-        <p>📍 Chhatrapati SambhajiNagar, Maharashtra | 🌐 <a href="https://newragrids.com" style="color: #16a34a;">www.newragrids.com</a></p>
-      </div>
-    </div>
-  </div>`;
 
-    // ✅ 7. Send Email
-    try {
+      <!-- Footer -->
+      <div style="background-color: #f0fdf4; text-align: center; padding: 15px; font-size: 13px; color: #555;">
+        <p style="margin: 0;">© ${new Date().getFullYear()} Newra Grids Pvt. Ltd. All rights reserved.</p>
+        <p style="margin: 5px 0 0;">📍 Chhatrapati SambhajNagar, Maharashtra | 🌐 <a href="https://newragrids.com" style="color: #16a34a; text-decoration: none;">www.newragrids.com</a></p>
+      </div>
+
+    </div>
+  </div>
+`;
+
         await sendEmail({
             subject,
             to: email,
             message,
         });
-        console.log("✅ Registration email sent successfully!");
+        console.log("Registration email sent successfully ✅");
     } catch (err) {
-        console.error("❌ Failed to send registration email:", err);
+        console.error("Failed to send registration email ❌", err);
     }
 
     res.status(200).json({
-        success: true,
         message: "User registered successfully",
         userId: newUser._id,
     });
 });
+
+
+
+
+
 
 // Login with password
 exports.userlogin = asyncHandler(async (req, res) => {
